@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import AddTodo from './components/AddTodo';
-import ListGroup from './components/ListGroup';
+import {Link, Route} from 'react-router-dom';
+
+import Indecision from './components/Indecision';
+import Home from './components/Home';
 
 const  App = () => {
   
@@ -18,13 +20,11 @@ const  App = () => {
     localStorage.setItem('todos', JSON.stringify(todos));
   })
 
-
-
+  // To retrieve todos from the addtodo component
   const getTodo = (newTodo) => {
-    console.log(newTodo);
     setTodos([...todos, newTodo]);
   }
-
+  // delete todos 
   const deleteTodo = (id) =>{
     const modifiedTodos = todos.filter(todo =>{
       return todo.id !== id;
@@ -34,15 +34,22 @@ const  App = () => {
   }
 
   return (
-      <div className="container">
-        <h2
-          className="teal lighten-1 white-text center-align"
-          style={{padding: "2rem 0"}}
-        >
-          Task Manager Lite
-        </h2>
-        <AddTodo getTodo={getTodo} />
-        <ListGroup todos = {todos} deleteTodo = {deleteTodo}/>
+      <div>
+        <nav className="nav-wrapper teal darken-2">
+           <ul className="right ">
+              <li><Link to="/" className="active">Home</Link></li>
+              <li><Link to="/decide" className="center">Indecision</Link></li>
+          </ul>
+        </nav>
+        <div>
+            <Route path='/' exact render={()=> (<Home todos={todos} deleteTodo={deleteTodo} getTodo={getTodo} />)} />
+            <Route path='/:anything' exact render={()=>(<Indecision todos={todos}/>)}/>
+            
+        </div>
+
+        <footer className="teal darken-2 white-text center" style={{position:"fixed", bottom:"0",left:"0",right:"0",padding:"1rem 0"}}>
+          <span className="center"> Created by Sounak {new Date().getUTCFullYear()}</span>
+        </footer>
       </div>
     )
   }

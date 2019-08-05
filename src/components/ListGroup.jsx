@@ -1,5 +1,4 @@
 import React from 'react'
-// import ListItem from './ListItem';
 
 const ListGroup = ({todos, deleteTodo}) => {
 
@@ -14,7 +13,7 @@ const ListGroup = ({todos, deleteTodo}) => {
                 <i className="material-icons right red-text text-darken-4"
                    key={todo.id}
                    style={{cursor:"pointer"}}
-                   onClick = {() => deleteCurrentTodo(todo.id)}
+                   onClick = {() => deleteTodo(todo.id)}
                 >
                     delete
                 </i>
@@ -22,14 +21,11 @@ const ListGroup = ({todos, deleteTodo}) => {
         )
     });
 
-    const deleteCurrentTodo = id =>{
-        deleteTodo(id);
-    }
 
     return (
         <div>
             <h4>
-                <span className="left-align">No of tasks : {todos.length}</span>
+                <span className="left-align">Tasks left : {todos.length}</span>
             </h4>
             <ul className="collection">
                 {list}

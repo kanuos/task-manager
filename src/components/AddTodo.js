@@ -31,7 +31,7 @@ const AddTodo = ({ getTodo }) => {
             onChange = {(e) => setTodo({ text: e.target.value }) }
         /> 
         <button className = "btn waves-effect waves-light" type = "submit" > 
-            Add New Todo 
+            Add New Task 
         </button> 
         </form> 
         </div>
