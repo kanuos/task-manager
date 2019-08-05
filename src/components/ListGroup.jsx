@@ -25,7 +25,9 @@ const ListGroup = ({todos, deleteTodo}) => {
     return (
         <div>
             <h4>
-                <span className="left-align">Tasks left : {todos.length}</span>
+                {todos.length ? <span className="left-align">Tasks left : {todos.length}</span>
+                 : <span className="center-align">No tasks left!</span> 
+            }
             </h4>
             <ul className="collection">
                 {list}

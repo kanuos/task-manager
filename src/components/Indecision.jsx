@@ -28,10 +28,14 @@ const Indecision = ({todos}) => {
                 >
                     Decide</button>
                 <div>
-                    {decision ? <h3>Your next task is : <span className={`${color}-text`}
-                    style={{textTransform: "capitalize"}}
-                    >{decision}</span></h3> : 
-                        <h3></h3>
+                    {decision ? 
+                        <h3 className="center-align">
+                            Your next task is &darr; 
+                            <div className={`${color}-text`}
+                                style={{textTransform: "capitalize"}}>
+                                {decision}
+                            </div>
+                        </h3> : <h3></h3>
                     }
                 </div>
             </div>
