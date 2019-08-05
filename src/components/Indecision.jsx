@@ -35,7 +35,7 @@ const Indecision = ({todos}) => {
                                 style={{textTransform: "capitalize"}}>
                                 {decision}
                             </div>
-                        </h3> : <h3></h3>
+                        </h3> : <span></span>
                     }
                 </div>
             </div>
