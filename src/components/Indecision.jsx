@@ -13,12 +13,14 @@ const Indecision = ({todos}) => {
 
     return (
         <div>
-            <h2 className="center teal white-text" style={{padding:"2rem 0"}}>Indecision</h2>
-            
+            <h2 className="center teal white-text"style={{padding: "2rem 0",margin:0, fontSize:"2.5rem"}}>Indecision</h2>
+            <p className="center teal-text text-darken-3 flow-text">
+                Let the computer decide your next task...
+            </p>
             <div className="container">
-                {todos.length ? <h3>{todos.length} tasks left</h3> : <h3>No tasks left.. Phew!</h3>}
+                {todos.length ? <h5>{todos.length} tasks left</h5> : <h5>No tasks left.. Phew!</h5>}
 
-                <button className="btn pulse center" 
+                <button className="btn pulse center" style={{margin:"2rem auto"}}
                     onClick={()=>{
                         setDecision(decide());
                         const colors = ['teal','green','red','orange'];
@@ -29,13 +31,13 @@ const Indecision = ({todos}) => {
                     Decide</button>
                 <div>
                     {decision ? 
-                        <h3 className="center-align">
+                        <h4 className="center-align">
                             Your next task is &darr; 
                             <div className={`${color}-text`}
                                 style={{textTransform: "capitalize"}}>
                                 {decision}
                             </div>
-                        </h3> : <span></span>
+                        </h4> : <span></span>
                     }
                 </div>
             </div>
