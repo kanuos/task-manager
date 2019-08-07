@@ -10,12 +10,12 @@ const ListGroup = ({todos, deleteTodo}) => {
                 style={{textTransform: "capitalize", cursor:"default"}} 
                 >
                     {todo.text}  
-                <i className="material-icons right red-text text-darken-4"
+                <i className="material-icons right green-text text-darken-4"
                    key={todo.id}
                    style={{cursor:"pointer"}}
                    onClick = {() => deleteTodo(todo.id)}
                 >
-                    delete
+                    check
                 </i>
             </li>
         )
